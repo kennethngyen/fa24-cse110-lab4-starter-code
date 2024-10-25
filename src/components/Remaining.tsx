@@ -11,10 +11,10 @@ const Remaining = () => {
   const alertType = totalExpenses > budget ? "alert-danger" : "alert-success";
 
   useEffect(() => {
-    if (budget-totalExpenses < 0) {
+    if (alertType == "alert-danger") {
       window.alert("You have exceeded your budget!");
     }
-  }, [totalExpenses]);
+  }, [alertType]);
 
   return (
     <div className={`alert ${alertType}`}>

@@ -1,16 +1,16 @@
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
-import React, { useState, useContext } from "react";
 const AddExpenseForm = () => {
   const { expenses, setExpenses } = useContext(AppContext);
 
   const [name, setName] = useState("");
-  const [cost, setCost] = useState<number | string>("");
+  const [cost, setCost] = useState("");
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newExpense = {
-      id: crypto.randomUUID().toString(),
-      name: name,
+      id: String(expenses.length).toString(),
+      name: name as string,
       cost: parseFloat(cost.toString()),
     };
 
