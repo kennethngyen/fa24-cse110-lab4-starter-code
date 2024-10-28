@@ -99,8 +99,8 @@ describe("Budget Balance Verification", () => {
     const spentValue: number = parseInt(spentElement.textContent?.replace(/[^0-9]/g, "") ?? "0");
 
     // Assert that the budget is equal to the sum of remaining and spent
-    expect(remainingValue + spentValue).not.toBe(budgetValue);
-    // expect(remainingValue + spentValue).toBe(budgetValue);
+    // expect(remainingValue + spentValue).not.toBe(budgetValue);
+    expect(remainingValue + spentValue).toBe(budgetValue);
   });
 });
 
