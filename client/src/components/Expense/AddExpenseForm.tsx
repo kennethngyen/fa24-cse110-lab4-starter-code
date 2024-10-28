@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
+import { createExpense } from "../../utils/expense-utils";
 const AddExpenseForm = () => {
   const { expenses, setExpenses } = useContext(AppContext);
 
@@ -9,10 +10,12 @@ const AddExpenseForm = () => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newExpense = {
-      id: String(expenses.length).toString(),
-      name: name as string,
+      id: crypto.randomUUID(),
+      description: name as string,
       cost: parseFloat(cost.toString()),
     };
+    createExpense(newExpense);
+
 
     setExpenses([...expenses, newExpense]);
     setName("");
