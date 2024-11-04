@@ -27,8 +27,8 @@ const Budget = () => {
 
   const handleSaveClick = async () => {
     try {
-      const updatedBudget = await updateBudget(newBudget);
-      setBudget(updatedBudget);
+      await updateBudget(newBudget);
+      setBudget(newBudget);
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating budget:", error);
@@ -37,7 +37,7 @@ const Budget = () => {
 
   const handleCancelClick = () => {
     setIsEditing(false);
-    setNewBudget(budget); // Reset to the original budget on cancel
+    setNewBudget(budget); 
   };
 
   return (
