@@ -26,9 +26,9 @@ export function deleteExpense(req: Request, res: Response, expenses: Expense[]) 
     if (index === -1) {
         return res.status(404).send({ error: "Expense not found" });
     }
-
-    expenses = expenses.filter((e) =>e.id!=id);
-    // console.log("deleted", expenses);
+    console.log(id)
+    expenses.splice(index, 1);
+    console.log("deleted", expenses);
     res.status(200).send({"newExpense":expenses});
 }
 
